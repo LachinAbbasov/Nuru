@@ -137,3 +137,56 @@ function createHeartExplosion() {
         });
     }
 }
+
+
+// Elektron saat
+function updateClock() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    const clock = document.getElementById('clock');
+    clock.textContent = `${hours}:${minutes}:${seconds}`;
+}
+
+
+
+// Hazırki ayın tarixi
+function updateDate() {
+    const now = new Date();
+    const months = [
+        'Yanvar', 'Fevral', 'Mart', 'Aprel', 'May', 'İyun', 'İyul', 'Avqust', 'Sentyabr', 'Oktyabr', 'Noyabr', 'Dekabr'
+    ];
+    const currentDate = document.getElementById('current-date');
+    currentDate.textContent = `Tarix: ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
+}
+
+// Yeniləmələri hər 1000 millisekundda bir edirik
+setInterval(updateClock, 1000);
+
+setInterval(updateDate, 1000);
+
+
+
+
+function updateSaat() {
+    let hour = document.getElementById('hour');
+    let minute = document.getElementById('minute');
+    let second = document.getElementById('second');
+
+    let now = new Date();
+    let h = now.getHours() % 12;
+    let m = now.getMinutes();
+    let s = now.getSeconds();
+
+    let hourDeg = (h * 30) + (m / 60) * 30; // Hər saat 30 dərəcə
+    let minuteDeg = m * 6; // Hər dəqiqə 6 dərəcə
+    let secondDeg = s * 6; // Hər saniyə 6 dərəcə
+
+    hour.style.transform = `rotate(${hourDeg}deg)`;
+    minute.style.transform = `rotate(${minuteDeg}deg)`;
+    second.style.transform = `rotate(${secondDeg}deg)`;
+}
+
+setInterval(updateSaat, 1000);
+updateSaat(); // İlk dəfə çağırılır
