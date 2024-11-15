@@ -13,9 +13,9 @@ const compliments = [
     "Sən mənim günəşim, ayım və ulduzumsan, Nurtəkin.",
     "Nurtəkin, səninlə hər an mənim üçün əvəzolunmazdır.",
     "Sən məni tamamlayan parçasan, Nurtəkin.",
-    "Hər düşüncəmdə sən varsın, Nurtəkin.",
+    "Hər düşüncəmdə sən varsan, Nurtəkin.",
     "Sənin məhəbbətin ruhuma sükunət verir, Nurtəkin.",
-    "Sənin əllərin mənim əllərimdə dünyanın ən möhkəm sığınacaqdır, Nurtəkin.",
+    "Sənin əllərin mənim əllərimdə dünyanın ən möhkəm sığınacağıdır, Nurtəkin.",
     "Nurtəkin, gözəlliyin məni hər gün heyrətləndirir.",
     "Sənin səsin ürəyimin musiqisidir, Nurtəkin.",
     "Sənin qoxun ən gözəl xatirələrimdə yaşayar, Nurtəkin.",
@@ -31,7 +31,7 @@ const compliments = [
     "Sevgimiz hər gün daha da böyüyür, Nurtəkin.",
     "Səninlə hər şey mümkündür, Nurtəkin.",
     "Həyatımı səninlə bölüşmək ən böyük şansdır, Nurtəkin.",
-    "Sənin səninlə keçirdiyim hər an qiymətlidir, Nurtəkin.",
+    "Səninlə keçirdiyim hər an qiymətlidir, Nurtəkin.",
     "Sənlə yaşamaq, sənlə gülmək ən gözəl hissdir, Nurtəkin.",
     "Nurtəkin, mənim dünyam sənə görə parlayır.",
     "Sənə hər baxışımda sevgim daha da böyüyür, Nurtəkin.",
@@ -39,7 +39,7 @@ const compliments = [
     "Nurtəkin, səninlə hər şey daha asan və gözəldir.",
     "Sənin məhəbbətin mənim ən böyük xəzinəmdir, Nurtəkin.",
     "Nurtəkin, səninlə hər gün yeni bir macəra yaşamaq istəyirəm.",
-    "Sənin səninlə həyat çox daha maraqlıdır, Nurtəkin.",
+    "Səninlə həyat çox daha maraqlıdır, Nurtəkin.",
     "Sən mənim ən yaxşı dostum və sevgilim, hər şeyimsən, Nurtəkin.",
     "Nurtəkin, sən mənim üçün ən gözəl möcüzəsən.",
     "Hər zaman yanında olmaq istəyirəm, Nurtəkin.",
@@ -54,7 +54,7 @@ const compliments = [
     "Səninlə hər şey mümkün olur, Nurtəkin.",
     "Nurtəkin, sən mənim ən güclü dəstəyimsən.",
     "Səninlə zaman dayana bilər, çünki hər saniyə qiymətlidir, Nurtəkin.",
-    "Sənin səninlə keçirdiyim hər anın dəyəri sonsuzdur, Nurtəkin.",
+    "Səninlə keçirdiyim hər anın dəyəri sonsuzdur, Nurtəkin.",
     "Sən mənim ən gözəl xəyallarımsan, Nurtəkin.",
     "Nurtəkin, sənə hər zaman ehtiyacım var.",
     "Sən mənim dünyanın ən gözəl insanısan, Nurtəkin.",
@@ -96,20 +96,44 @@ const compliments = [
     "Sənin yanında olmaq hər zaman sükunət verir, Nurtəkin.",
     "Səninlə həyat daha yaxşıdır, Nurtəkin.",
     "Nurtəkin, sən mənim həmişəki sevgim olacaqsan."
-  ];
+];
+
   
-  function showCompliment() {
+ 
+
+function showCompliment() {
+    const message = document.getElementById("message");
     const randomIndex = Math.floor(Math.random() * compliments.length);
-    const message = compliments[randomIndex];
-    const messageElement = document.getElementById('message');
-    
-    // Yeni iltifat göstər
-    messageElement.innerText = message;
-    
-    // Fade-in animasiyasını yenilə
-    messageElement.style.animation = 'none';
-    setTimeout(() => {
-      messageElement.style.animation = '';
-    }, 10);
-  }
-  
+    message.textContent = compliments[randomIndex];
+
+    // Animasyonu sıfırlayıp tekrar başlatmak için
+    message.classList.remove('fadeInFromLeft');
+    void message.offsetWidth;  // Bu satır, animasyonu tetiklemek için kullanılır
+    message.classList.add('fadeInFromLeft');
+
+    createHeartExplosion();
+}
+
+function createHeartExplosion() {
+    const heartsContainer = document.getElementById("hearts-container");
+    for (let i = 0; i < 10; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+
+        const size = Math.random() * 20 + 10;
+        heart.style.width = `${size}px`;
+        heart.style.height = `${size}px`;
+        heart.style.left = `${Math.random() * 100}vw`;
+        heart.style.top = `${Math.random() * 100}vh`;
+
+        heart.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 80%)`;
+        heart.style.animationDelay = `${Math.random() * 0.5}s`;
+
+        heartsContainer.appendChild(heart);
+
+        // Animasiya bitdikdən sonra ürəyi silir
+        heart.addEventListener("animationend", () => {
+            heart.remove();
+        });
+    }
+}

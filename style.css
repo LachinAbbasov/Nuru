@@ -7,16 +7,16 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-  }
-  
-  h1 {
+}
+
+h1 {
     font-size: 2.5em;
     margin-top: 50px;
     color: #fff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-  }
-  
-  button {
+}
+
+button {
     background: linear-gradient(45deg, #ff758c, #ff7eb3);
     color: #fff;
     padding: 12px 24px;
@@ -26,98 +26,164 @@ body {
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 4px 10px rgba(255, 87, 112, 0.5);
-  }
-  
-  button:hover {
+}
+
+button:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 15px rgba(255, 87, 112, 0.7);
-  }
-  
-  #message {
+}
+
+#message {
     margin-top: 20px;
     font-size: 1.8em;
     font-weight: bold;
     color: #fff;
     text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
-    animation: fadeIn 0.5s ease;
-  }
-  
-  /* Mesaj animasiyası */
-  @keyframes fadeIn {
+    animation: fadeIn 1s ease;
+}
+
+/* Yazıların animasiyası */
+@keyframes fadeIn {
     0% {
-      opacity: 0;
-      transform: scale(0.8);
+        opacity: 0;
+        transform: translateY(-20px);
     }
     100% {
-      opacity: 1;
-      transform: scale(1);
+        opacity: 1;
+        transform: translateY(0);
     }
-  }
-  
-  /* Ürək animasiyaları */
-  .hearts-container {
-    position: relative;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-  
-  .heart {
+}
+
+/* Ürək animasiyası */
+.heart {
     position: absolute;
     width: 20px;
     height: 20px;
     background-color: #ff6b81;
     transform: rotate(45deg);
-    animation: floatUp 5s infinite ease-in-out;
-  }
-  
-  .heart::before,
-  .heart::after {
+    animation: explode 1s ease forwards;
+    opacity: 0.8;
+}
+
+.heart::before,
+.heart::after {
     content: '';
     position: absolute;
     width: 20px;
     height: 20px;
     background-color: #ff6b81;
     border-radius: 50%;
-  }
-  
-  .heart::before {
+}
+
+.heart::before {
     top: -10px;
     left: 0;
-  }
-  
-  .heart::after {
+}
+
+.heart::after {
     left: 10px;
     top: 0;
-  }
-  
-  @keyframes floatUp {
+}
+
+@keyframes explode {
     0% {
-      transform: translateY(0) scale(0.8);
-      opacity: 1;
+        transform: scale(0.8) translate(0, 0);
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.9;
     }
     100% {
-      transform: translateY(-100vh) scale(1.2);
-      opacity: 0;
+        transform: scale(2) translate(50px, -50px);
+        opacity: 0;
     }
-  }
-  
-  /* Fərqli ürəklərin mövqeyi və yavaşladıcı */
-  .heart:nth-child(1) {
-    left: 20%;
+}
+
+/* Güllər */
+.flower {
+    position: absolute;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    opacity: 0.8;
+    animation: flowerMove 4s ease-in-out infinite;
+}
+
+.flower1 {
+    background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');
+    left: 5%;
     animation-delay: 0s;
-  }
-  
-  .heart:nth-child(2) {
-    left: 50%;
-    animation-delay: 2s;
-  }
-  
-  .heart:nth-child(3) {
-    left: 80%;
-    animation-delay: 4s;
-  }
-  
+}
+
+.flower2 {
+    background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');
+    left: 15%;
+    animation-delay: 0.5s;
+}
+
+.flower3 {
+    background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');
+    left: 25%;
+    animation-delay: 1s;
+}
+
+.flower4 {
+    background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');
+    left: 35%;
+    animation-delay: 1.5s;
+}
+
+/* 40 gül üçün əlavə siniflər */
+.flower5 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif'); left: 45%; animation-delay: 2s; }
+.flower6 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif'); left: 55%; animation-delay: 2.5s; }
+.flower7 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif'); left: 65%; animation-delay: 3s; }
+.flower8 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif'); left: 75%; animation-delay: 3.5s; }
+.flower9 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif'); left: 85%; animation-delay: 4s; }
+.flower10 {background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif'); left: 95%; animation-delay: 4.5s; }
+.flower11 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 10%; animation-delay: 5s; }
+.flower12 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 20%; animation-delay: 5.5s; }
+.flower13 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 30%; animation-delay: 6s; }
+.flower14 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 40%; animation-delay: 6.5s; }
+.flower15 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 50%; animation-delay: 7s; }
+.flower16 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 60%; animation-delay: 7.5s; }
+.flower17 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 70%; animation-delay: 8s; }
+.flower18 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 80%; animation-delay: 8.5s; }
+.flower19 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif'); left: 90%; animation-delay: 9s; }
+.flower20 {background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif'); left: 0%; animation-delay: 9.5s; }
+.flower21 {background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif'); left: 5%; animation-delay: 10s; }
+.flower22 {background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif'); left: 15%; animation-delay: 10.5s; }
+.flower23 {background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif'); left: 25%; animation-delay: 11s; }
+.flower24 {background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif'); left: 35%; animation-delay: 11.5s; }
+.flower25 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 45%; animation-delay: 12s; }
+.flower26 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 55%; animation-delay: 12.5s; }
+.flower27 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 65%; animation-delay: 13s; }
+.flower28 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 75%; animation-delay: 13.5s; }
+.flower29 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 85%; animation-delay: 14s; }
+.flower30 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 95%; animation-delay: 14.5s; }
+.flower31 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 10%; animation-delay: 15s; }
+.flower32 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 20%; animation-delay: 15.5s; }
+.flower33 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 30%; animation-delay: 16s; }
+.flower34 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 40%; animation-delay: 16.5s; }
+.flower35 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 50%; animation-delay: 17s; }
+.flower36 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 60%; animation-delay: 17.5s; }
+.flower37 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 70%; animation-delay: 18s; }
+.flower38 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 80%; animation-delay: 18.5s; }
+.flower39 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 90%; animation-delay: 19s; }
+.flower40 { background-image: url('/100-Stems-of-Red-Freedom-Roses-Beautiful-Fresh-Cut-Flowers-Express-Delivery_848f22cb-e3bf-47c5-a7b1-dcfc26962794_1.401de08ad1eb2e03a49bfab64dca623e.avif');left: 0%; animation-delay: 19.5s; }
+
+/* Güllərin hərəkət animasiyası */
+@keyframes flowerMove {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-20px);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
