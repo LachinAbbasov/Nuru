@@ -1,0 +1,123 @@
+/* Ümumi dizayn */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+    margin-top: 50px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  }
+  
+  button {
+    background: linear-gradient(45deg, #ff758c, #ff7eb3);
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 10px rgba(255, 87, 112, 0.5);
+  }
+  
+  button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(255, 87, 112, 0.7);
+  }
+  
+  #message {
+    margin-top: 20px;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.5s ease;
+  }
+  
+  /* Mesaj animasiyası */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Ürək animasiyaları */
+  .hearts-container {
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff6b81;
+    transform: rotate(45deg);
+    animation: floatUp 5s infinite ease-in-out;
+  }
+  
+  .heart::before,
+  .heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff6b81;
+    border-radius: 50%;
+  }
+  
+  .heart::before {
+    top: -10px;
+    left: 0;
+  }
+  
+  .heart::after {
+    left: 10px;
+    top: 0;
+  }
+  
+  @keyframes floatUp {
+    0% {
+      transform: translateY(0) scale(0.8);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100vh) scale(1.2);
+      opacity: 0;
+    }
+  }
+  
+  /* Fərqli ürəklərin mövqeyi və yavaşladıcı */
+  .heart:nth-child(1) {
+    left: 20%;
+    animation-delay: 0s;
+  }
+  
+  .heart:nth-child(2) {
+    left: 50%;
+    animation-delay: 2s;
+  }
+  
+  .heart:nth-child(3) {
+    left: 80%;
+    animation-delay: 4s;
+  }
+  
